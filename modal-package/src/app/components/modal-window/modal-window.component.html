@@ -1,0 +1,19 @@
+<div class="md-modal {{modal.isVisible ? 'md-show' : ''}}" [ngClass]="modal.cssClass" [id]="modal.id">
+    <div class="md-content">
+        <h3 *ngIf="modal.title">{{modal.title}}</h3>
+
+        <div>
+            <!-- Modal Window Content -->
+            <ng-container *ngComponentOutlet="modal?.component"></ng-container>
+            <span *ngIf="modal.content">{{modal?.content}}</span>
+
+            <button class="md-close" (click)="closeModal($event)" *ngIf="modal.buttonText">{{modal.buttonText}}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div *ngIf="modal.isVisible" class="container"></div>
+
+<!-- the overlay element -->
+<div *ngIf="modal.isVisible" (click)="closeModal($event)" class="md-overlay"></div>
