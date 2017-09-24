@@ -41,6 +41,12 @@ export class ModalWindowComponent
         {
             document.documentElement.classList.remove('md-perspective');
         }
+
+        if (this.modal.onClose)
+        {
+            // console.log('Modal Closed');
+            this.modal.onClose();
+        }
     }
     // ========================================================================
 }

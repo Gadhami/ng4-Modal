@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 
 import { IModalWindow         } from '../../interfaces/modal-window';
 
@@ -22,8 +22,6 @@ export class AppComponent implements OnInit
     // Normally you would need something like this: (instead of a QueryList<...>)
     // @ViewChild('modalWindow') modalWindow: ElementRef<ModalWindowComponent>;
 
-    @ViewChild('container1') content: ElementRef;
-
     // ========================================================================
     ngOnInit()
     {
@@ -35,7 +33,7 @@ export class AppComponent implements OnInit
                 title     : 'Fade in &amp; Scale',
                 cssClass  : 'md-effect-1',
                 component : DummyDataComponent,
-                buttonText: 'Close'
+                buttonText: 'Close',
             },
             {
                 id        : 'modal-2',
@@ -155,7 +153,8 @@ export class AppComponent implements OnInit
                 title     : 'Blur',
                 cssClass  : 'md-effect-16',
                 component : DummyDataComponent,
-                buttonText: 'OK'
+                buttonText: 'OK',
+                onClose   : this.onModalClose.bind(this),
             },
 
             // Special modal that will add a perspective class to the html element
@@ -196,6 +195,16 @@ export class AppComponent implements OnInit
 
         this.activeModalIdx = index;
         this.modalWindow.toArray()[index].showModal();
+    }
+
+    // ========================================================================
+    onModalClose()
+    {
+        if (this.blurContent)
+        {
+            // Disable Blur
+            this.blurContent = false;
+        }
     }
     // ========================================================================
 }

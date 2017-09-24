@@ -11,4 +11,7 @@ export interface IModalWindow
 
     isVisible: boolean;
     hasPerspective?: boolean;
+
+    // Callback function
+    onClose?: Function;
 }

@@ -3,7 +3,7 @@
     [modal]="modal">
 </app-modal-window>
 
-<div class="container1" [ngClass]="{ 'blur' : blurContent }">
+<div [ngClass]="{ 'blur' : blurContent }">
     <app-top-nav></app-top-nav>
 
     <div class="main clearfix">
@@ -11,27 +11,27 @@
             <p>There are many possibilities for modal overlays to appear. Here are some modern ways of showing them using CSS transitions and animations.</p>
         </div>
         <div class="column">
-            <button data-modal="modal-1" (click)="showModal(0)">Fade in &amp; Scale</button>
-            <button data-modal="modal-2" (click)="showModal(1)">Slide in (right)</button>
-            <button data-modal="modal-3" (click)="showModal(2)">Slide in (bottom)</button>
-            <button data-modal="modal-4" (click)="showModal(3)">Newspaper</button>
-            <button data-modal="modal-5" (click)="showModal(4)">Fall</button>
-            <button data-modal="modal-6" (click)="showModal(5)">Side Fall</button>
-            <button data-modal="modal-7" (click)="showModal(6)">Sticky Up</button>
-            <button data-modal="modal-8" (click)="showModal(7)">3D Flip (horizontal)</button>
-            <button data-modal="modal-9" (click)="showModal(8)">3D Flip (vertical)</button>
-            <button data-modal="modal-10" (click)="showModal(9)">3D Sign</button>
-            <button data-modal="modal-11" (click)="showModal(10)">Super Scaled</button>
-            <button data-modal="modal-12" (click)="showModal(11)">Just Me</button>
-            <button data-modal="modal-13" (click)="showModal(12)">3D Slit</button>
-            <button data-modal="modal-14" (click)="showModal(13)">3D Rotate Bottom</button>
-            <button data-modal="modal-15" (click)="showModal(14)">3D Rotate In Left</button>
-            <button data-modal="modal-16" (click)="showModal(15, true)">Blur</button>
+            <button (click)="showModal(0)">Fade in &amp; Scale</button>
+            <button (click)="showModal(1)">Slide in (right)</button>
+            <button (click)="showModal(2)">Slide in (bottom)</button>
+            <button (click)="showModal(3)">Newspaper</button>
+            <button (click)="showModal(4)">Fall</button>
+            <button (click)="showModal(5)">Side Fall</button>
+            <button (click)="showModal(6)">Sticky Up</button>
+            <button (click)="showModal(7)">3D Flip (horizontal)</button>
+            <button (click)="showModal(8)">3D Flip (vertical)</button>
+            <button (click)="showModal(9)">3D Sign</button>
+            <button (click)="showModal(10)">Super Scaled</button>
+            <button (click)="showModal(11)">Just Me</button>
+            <button (click)="showModal(12)">3D Slit</button>
+            <button (click)="showModal(13)">3D Rotate Bottom</button>
+            <button (click)="showModal(14)">3D Rotate In Left</button>
+            <button (click)="showModal(15, true)">Blur</button>
 
             <!-- special modal that will add a perspective class to the html element -->
-            <button class="md-setperspective" data-modal="modal-17" (click)="showModal(16)">Let me in</button>
-            <button class="md-setperspective" data-modal="modal-18" (click)="showModal(17)">Make way!</button>
-            <button class="md-setperspective" data-modal="modal-19" (click)="showModal(18)">Slip from top</button>
+            <button class="md-setperspective" (click)="showModal(16)">Let me in</button>
+            <button class="md-setperspective" (click)="showModal(17)">Make way!</button>
+            <button class="md-setperspective" (click)="showModal(18)">Slip from top</button>
         </div>
     </div>
 </div><!-- /container -->
