@@ -157,7 +157,7 @@ export class AppComponent implements OnInit
                 onClose   : this.onModalClose.bind(this),
             },
 
-            // Special modal that will add a perspective class to the html element
+            // The following styles add a 3d perspective to the html element
             {
                 id            : 'modal-17',
                 isVisible     : false,
@@ -184,6 +184,26 @@ export class AppComponent implements OnInit
                 component     : DummyDataComponent,
                 buttonText    : 'OK',
                 hasPerspective: true,
+            },
+
+            {
+                id            : 'modal-20',
+                isVisible     : false,
+                title         : 'Vertical Expand',
+                cssClass      : 'md-effect-20',
+                component     : DummyDataComponent,
+                buttonText    : 'OK',
+                hasPerspective: false,
+            },
+            // Jelly
+            {
+                id            : 'modal-21',
+                isVisible     : false,
+                title         : 'Jelly',
+                cssClass      : 'don',
+                component     : DummyDataComponent,
+                buttonText    : 'OK',
+                hasPerspective: false,
             },
         ];
     }

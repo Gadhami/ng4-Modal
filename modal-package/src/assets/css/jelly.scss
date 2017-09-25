@@ -1,0 +1,240 @@
+// @import "compass/css3";
+// @import "node_modules/compass-mixins/lib/compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:200,600,700,400);
+
+// .dialog  => .md-content
+
+.md-content
+// , .dialog__overlay */
+{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.md-content
+{
+    position: fixed;
+    @include display-flex();
+    @include align-items(center);
+    @include justify-content(center);
+    pointer-events: none;
+}
+
+// .dialog__overlay {
+// 	position: absolute;
+// 	z-index: 1;
+// 	background: rgba(55, 58, 71, 0.9);
+// 	opacity: 0;
+// 	-webkit-backface-visibility: hidden;
+//   @include transition(opacity 0.3s);
+// }
+
+// .dialog--open .dialog__overlay
+// {
+// 	opacity: 1;
+// 	pointer-events: auto;
+// }
+
+// .dialog__content {
+// 	width: 50%;
+// 	max-width: 560px;
+// 	min-width: 290px;
+// 	background: #fff;
+// 	padding: 4em;
+// 	text-align: center;
+// 	position: relative;
+// 	z-index: 5;
+// 	opacity: 0;
+// }
+
+// .dialog--open .dialog__content {
+// 	pointer-events: auto;
+// }
+
+// ============ Content
+.md-content h2
+{
+	margin: 0;
+	font-weight: 400;
+	font-size: 2em;
+	padding: 0 0 2em;
+	margin: 0;
+  
+  .don & {
+    &:after {
+      content: 'don';
+    }
+  }
+  .sandra & {
+    &:after {
+      content: 'sandra';
+    }
+  }
+  .sally & {
+    &:after {
+      content: 'sally';
+    }
+  }
+}
+
+
+// ============ EFFECT sandra
+@include keyframes(sandra-open)
+{
+    0% { opacity: 0; @include transform(scale3d(1.1, 1.1, 1)); }
+    100% { opacity: 1; @include transform(scale3d(1, 1, 1)); }
+}
+@include keyframes(sandra-close) {
+    0% { opacity: 1; }
+    100% { opacity: 0; @include transform(scale3d(0.9, 0.9, 1)); }
+}
+.sandra
+{
+    // .md-content.dialog--open .dialog__content,
+    // .md-content.dialog--close .dialog__content
+    .md-show .md-content
+    {
+        @include animation-duration(0.3s);
+        @include animation-fill-mode(forwards);
+    }
+
+    // .md-content.dialog--open .dialog__content
+    .md-show .md-content
+    {
+        @include animation-name(sandra-open);
+    }
+
+    // .md-content.dialog--close .dialog__content
+    // {
+    //     @include animation-name(sandra-close);
+    // }
+}
+
+
+// ============ EFFECT sally
+@include keyframes(sally-open)
+{
+    0% { opacity: 0; @include transform(scale3d(0, 0, 1)); }
+    100% { opacity: 1; @include transform(scale3d(1, 1, 1)); }
+}
+@include keyframes(sally-close)
+{
+    0% { opacity: 1; }
+    100% { opacity: 0; @include transform(scale3d(0.5, 0.5, 1)); }
+}
+.sally
+{
+    .dialog__overlay {
+        @include transition-duration(0.4s);
+    }
+
+    // .md-content.dialog--open .dialog__content,
+    // .md-content.dialog--close .dialog__content
+    .md-show .md-content
+    {
+        @include animation-duration(0.4s);
+        @include animation-fill-mode(forwards);
+    }
+
+    // .md-content.dialog--open .dialog__content
+    .md-show .md-content
+    {
+        @include animation-name(sally-open);
+        @include animation-timing-function(cubic-bezier(0.6,0,0.4,1));
+    }
+
+    // .md-content.dialog--close .dialog__content
+    // {
+    //     @include animation-name(sally-close);
+    // }
+}
+
+
+// ============ EFFECT don
+@include keyframes(don-open)
+{
+    0% { opacity: 0; @include transform(matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    2.083333% { @include transform(matrix3d(0.75266, 0, 0, 0, 0, 0.76342, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    4.166667% { @include transform(matrix3d(0.81071, 0, 0, 0, 0, 0.84545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    6.25% { @include transform(matrix3d(0.86808, 0, 0, 0, 0, 0.9286, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    8.333333% { @include transform(matrix3d(0.92038, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    10.416667% { @include transform(matrix3d(0.96482, 0, 0, 0, 0, 1.05202, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    12.5% { @include transform(matrix3d(1, 0, 0, 0, 0, 1.08204, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    14.583333% { @include transform(matrix3d(1.02563, 0, 0, 0, 0, 1.09149, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    16.666667% { @include transform(matrix3d(1.04227, 0, 0, 0, 0, 1.08453, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    18.75% { @include transform(matrix3d(1.05102, 0, 0, 0, 0, 1.06666, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    20.833333% { @include transform(matrix3d(1.05334, 0, 0, 0, 0, 1.04355, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    22.916667% { @include transform(matrix3d(1.05078, 0, 0, 0, 0, 1.02012, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    25% { @include transform(matrix3d(1.04487, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    27.083333% { @include transform(matrix3d(1.03699, 0, 0, 0, 0, 0.98534, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    29.166667% { @include transform(matrix3d(1.02831, 0, 0, 0, 0, 0.97688, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    31.25% { @include transform(matrix3d(1.01973, 0, 0, 0, 0, 0.97422, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    33.333333% { @include transform(matrix3d(1.01191, 0, 0, 0, 0, 0.97618, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    35.416667% { @include transform(matrix3d(1.00526, 0, 0, 0, 0, 0.98122, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    37.5% { @include transform(matrix3d(1, 0, 0, 0, 0, 0.98773, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    39.583333% { @include transform(matrix3d(0.99617, 0, 0, 0, 0, 0.99433, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    41.666667% { @include transform(matrix3d(0.99368, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    43.75% { @include transform(matrix3d(0.99237, 0, 0, 0, 0, 1.00413, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    45.833333% { @include transform(matrix3d(0.99202, 0, 0, 0, 0, 1.00651, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    47.916667% { @include transform(matrix3d(0.99241, 0, 0, 0, 0, 1.00726, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    50% { opacity: 1; @include transform(matrix3d(0.99329, 0, 0, 0, 0, 1.00671, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    52.083333% { @include transform(matrix3d(0.99447, 0, 0, 0, 0, 1.00529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    54.166667% { @include transform(matrix3d(0.99577, 0, 0, 0, 0, 1.00346, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    56.25% { @include transform(matrix3d(0.99705, 0, 0, 0, 0, 1.0016, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    58.333333% { @include transform(matrix3d(0.99822, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    60.416667% { @include transform(matrix3d(0.99921, 0, 0, 0, 0, 0.99884, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    62.5% { @include transform(matrix3d(1, 0, 0, 0, 0, 0.99816, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    64.583333% { @include transform(matrix3d(1.00057, 0, 0, 0, 0, 0.99795, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    66.666667% { @include transform(matrix3d(1.00095, 0, 0, 0, 0, 0.99811, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    68.75% { @include transform(matrix3d(1.00114, 0, 0, 0, 0, 0.99851, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    70.833333% { @include transform(matrix3d(1.00119, 0, 0, 0, 0, 0.99903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    72.916667% { @include transform(matrix3d(1.00114, 0, 0, 0, 0, 0.99955, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    75% { @include transform(matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    77.083333% { @include transform(matrix3d(1.00083, 0, 0, 0, 0, 1.00033, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    79.166667% { @include transform(matrix3d(1.00063, 0, 0, 0, 0, 1.00052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    81.25% { @include transform(matrix3d(1.00044, 0, 0, 0, 0, 1.00058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    83.333333% { @include transform(matrix3d(1.00027, 0, 0, 0, 0, 1.00053, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    85.416667% { @include transform(matrix3d(1.00012, 0, 0, 0, 0, 1.00042, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    87.5% { @include transform(matrix3d(1, 0, 0, 0, 0, 1.00027, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    89.583333% { @include transform(matrix3d(0.99991, 0, 0, 0, 0, 1.00013, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    91.666667% { @include transform(matrix3d(0.99986, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    93.75% { @include transform(matrix3d(0.99983, 0, 0, 0, 0, 0.99991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    95.833333% { @include transform(matrix3d(0.99982, 0, 0, 0, 0, 0.99985, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    97.916667% { @include transform(matrix3d(0.99983, 0, 0, 0, 0, 0.99984, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+    100% { opacity: 1; @include transform(matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)); }
+}
+@include keyframes(don-close)
+{
+	0% { opacity: 1; }
+	100% { opacity: 0; @include transform(scale3d(0.8, 0.8, 1));  }
+}
+.don
+{
+    // .md-content.dialog--open .dialog__content,
+    // .md-content.dialog--close .dialog__content
+    // .md-show .md-content
+    & .md-content,
+    .md-show#{&} .md-content
+    {
+        @include animation-timing-function(linear);
+        @include animation-duration(1s);
+        @include animation-fill-mode(forwards);
+    }
+
+    // .md-content.dialog--open .dialog__content
+    & .md-content
+    {
+        @include animation-name(don-open);
+    }
+
+    // .md-content.dialog--close .dialog__content
+    .md-show#{&} .md-content
+    {
+        @include animation-name(don-close);
+        @include animation-duration(0.3s);
+        @include animation-timing-function(ease-out);
+    }
+}

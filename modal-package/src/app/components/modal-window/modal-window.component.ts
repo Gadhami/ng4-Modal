@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
-
-import { IModalWindow } from '../../interfaces/modal-window';
+import { IModalWindow     } from '../../interfaces/modal-window';
 
 @Component({
     selector   : 'app-modal-window',
     templateUrl: './modal-window.component.html',
-    styleUrls  : ['./modal-window.component.css']
+    styleUrls  : ['./modal-window.component.scss']
 })
 export class ModalWindowComponent
 {
@@ -19,6 +18,7 @@ export class ModalWindowComponent
     {
         this.modal.isVisible = true;
 
+        // Add 3d perspective
         if (this.modal.hasPerspective)
         {
             setTimeout(() => {
@@ -35,16 +35,18 @@ export class ModalWindowComponent
             e.stopPropagation();
         }
 
+        // Hide modal window
         this.modal.isVisible = false;
 
+        // Remove 3d perspective
         if (this.modal.hasPerspective)
         {
             document.documentElement.classList.remove('md-perspective');
         }
 
+        // Callback function
         if (this.modal.onClose)
         {
-            // console.log('Modal Closed');
             this.modal.onClose();
         }
     }
