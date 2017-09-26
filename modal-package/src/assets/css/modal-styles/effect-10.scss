@@ -1,0 +1,37 @@
+/* ============ Effect 10: 3D sign */
+.md-effect-10
+{
+    &.md-modal
+    {
+        -webkit-perspective: 1300px;
+        -moz-perspective: 1300px;
+        perspective: 1300px;
+    }
+
+    & .md-content
+    {
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateX(-60deg);
+        -moz-transform: rotateX(-60deg);
+        -ms-transform: rotateX(-60deg);
+        transform: rotateX(-60deg);
+        -webkit-transform-origin: 50% 0;
+        -moz-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        opacity: 0;
+        -webkit-transition: all $transition-delay;
+        -moz-transition: all $transition-delay;
+        transition: all $transition-delay;
+    }
+
+    &.md-show .md-content
+    {
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}

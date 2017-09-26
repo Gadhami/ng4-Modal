@@ -1,0 +1,24 @@
+/* ============ Effect 11: Super scaled */
+.md-effect-11
+{
+    & .md-content
+    {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+        -webkit-transition: all $transition-delay;
+        -moz-transition: all $transition-delay;
+        transition: all $transition-delay;
+    }
+
+    &.md-show .md-content
+    {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}

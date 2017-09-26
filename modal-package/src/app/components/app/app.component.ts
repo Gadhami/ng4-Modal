@@ -166,6 +166,7 @@ export class AppComponent implements OnInit
                 component     : DummyDataComponent,
                 buttonText    : 'OK',
                 hasPerspective: true,
+                showCloseBtn  : false,
             },
             {
                 id            : 'modal-18',

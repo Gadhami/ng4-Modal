@@ -1,0 +1,25 @@
+// ============ Effect 3: Slide from the bottom
+
+.md-effect-3
+{
+     & .md-content
+     {
+        -webkit-transform: translateY(20%);
+        -moz-transform: translateY(20%);
+        -ms-transform: translateY(20%);
+        transform: translateY(20%);
+        opacity: 0;
+        -webkit-transition: all $transition-delay;
+        -moz-transition: all $transition-delay;
+        transition: all $transition-delay;
+    }
+
+    &.md-show .md-content
+    {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

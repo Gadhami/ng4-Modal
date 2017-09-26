@@ -3,8 +3,8 @@ button
 {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #c0392b;
-	color: #fff;
+	background: darken($color-bg, 10%);     /* #c0392b; */
+	color: $color-fg;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
 	letter-spacing: 1px;
@@ -14,7 +14,8 @@ button
 	margin: 3px 2px;
 	border-radius: 2px;
 
-    &:hover {
-        background: #A5281B;
+    &:hover
+    {
+        background: darken($color-bg, 20%)  /* #A5281B */;
     }
 }

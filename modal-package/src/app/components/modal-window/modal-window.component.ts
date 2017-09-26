@@ -1,17 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { IModalWindow     } from '../../interfaces/modal-window';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
+
+// Interface
+import { IModalWindow } from '../../interfaces/modal-window';
 
 @Component({
     selector   : 'app-modal-window',
     templateUrl: './modal-window.component.html',
     styleUrls  : ['./modal-window.component.scss']
 })
-export class ModalWindowComponent
+export class ModalWindowComponent implements OnInit
 {
     @Input() modal: IModalWindow;
 
     // ========================================================================
     constructor() { }
+
+    // ========================================================================
+    ngOnInit()
+    {
+        this.modal.showCloseBtn = this.modal.showCloseBtn ? this.modal.showCloseBtn : true;
+    }
 
     // ========================================================================
     showModal()
@@ -28,6 +36,7 @@ export class ModalWindowComponent
     }
 
     // ========================================================================
+    @HostListener('document:keydown.esc')
     closeModal(e)
     {
         if (e)
@@ -49,6 +58,9 @@ export class ModalWindowComponent
         {
             this.modal.onClose();
         }
+
+        return false;
     }
+
     // ========================================================================
 }

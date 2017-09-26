@@ -1,6 +1,10 @@
 <div class="md-modal {{modal.isVisible ? 'md-show' : ''}}" [ngClass]="modal.cssClass" [id]="modal.id">
     <div class="md-content">
-        <h3 *ngIf="modal.title">{{modal.title}}</h3>
+        <h3 *ngIf="modal.title">
+            {{modal.title}}
+
+            <a href="#" *ngIf="modal.showCloseBtn" (click)="closeModal($event)" class="close">X</a>
+        </h3>
 
         <div>
             <!-- Modal Window Content -->
